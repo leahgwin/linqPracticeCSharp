@@ -8,6 +8,8 @@ namespace linq
     {
         static void Main(string[] args)
         {
+            //FILTERING-----------------------------------------------------------------
+
             // Find the words in the collection that start with the letter 'L'
             List<string> fruits = new List<string>() { "Lemon", "Apple", "Orange", "Lime", "Watermelon", "Loganberry" };
 
@@ -20,6 +22,20 @@ namespace linq
             {
                 Console.WriteLine($"{fruit}");
             }
+
+            // Which of the following numbers are multiples of 4 or 6
+            List<int> numbersMultiples = new List<int>()
+{
+    15, 8, 21, 24, 32, 13, 30, 12, 7, 54, 48, 4, 49, 96
+};
+
+            List<int> fourSixMultiples = numbersMultiples.Where(n => n % 4 == 0 || n % 6 == 0).ToList();
+            foreach (int number in fourSixMultiples)
+            {
+                Console.WriteLine(number);
+            }
+
+            //ORDERING-----------------------------------------------------------------
 
             // Order these student names alphabetically, in descending order (Z to A)
             List<string> names = new List<string>()
@@ -55,6 +71,8 @@ namespace linq
                 Console.WriteLine($"{num}");
             }
 
+            //AGGREGATE-----------------------------------------------------------------
+
             // Output how many numbers are in this list
             List<int> numbersOutput = new List<int>()
                 {
@@ -71,6 +89,18 @@ namespace linq
 
             var sumPurchases = purchases.Sum();
             Console.WriteLine($"We've made {sumPurchases.ToString("C")}.");
+
+            // What is our most expensive product?
+            List<double> prices = new List<double>()
+                {
+                    879.45, 9442.85, 2454.63, 45.65, 2340.29, 34.03, 4786.45, 745.31, 21.76
+                };
+            Console.WriteLine(prices.Max().ToString("C"));
+
+
+
+            //PARTITIONING-----------------------------------------------------------------
+
 
 
         }
